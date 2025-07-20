@@ -7,10 +7,11 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { FloatingHelpBot } from "@/components/FloatingHelpBot";
 import { Button } from "@/components/ui/button";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, Menu, X } from "lucide-react";
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Handle scroll to top button visibility
   useEffect(() => {
@@ -91,7 +92,69 @@ const Index = () => {
                 Contact
               </Button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 hover:bg-primary/10 rounded-lg transition-colors"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-primary/10">
+              <div className="flex flex-col gap-4 pt-4">
+                <button 
+                  onClick={() => {
+                    scrollToSection('services');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left hover:text-primary transition-colors py-2"
+                >
+                  Services
+                </button>
+                <button 
+                  onClick={() => {
+                    scrollToSection('portfolio');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left hover:text-primary transition-colors py-2"
+                >
+                  Portfolio
+                </button>
+                <button 
+                  onClick={() => {
+                    scrollToSection('hire');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left hover:text-primary transition-colors py-2"
+                >
+                  Hire Us
+                </button>
+                <button 
+                  onClick={() => {
+                    scrollToSection('testimonials');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left hover:text-primary transition-colors py-2"
+                >
+                  Reviews
+                </button>
+                <Button 
+                  onClick={() => {
+                    scrollToSection('contact');
+                    setMobileMenuOpen(false);
+                  }}
+                  size="sm"
+                  className="neon-glow w-fit"
+                >
+                  Contact
+                </Button>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
