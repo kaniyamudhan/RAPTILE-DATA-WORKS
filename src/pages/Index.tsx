@@ -10,13 +10,12 @@ import { FloatingHelpBot } from "@/components/FloatingHelpBot";
 import { Button } from "@/components/ui/button";
 import { ArrowUp, Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const Index = () => {
@@ -84,36 +83,42 @@ const Index = () => {
                 About
               </button>
               
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors">
-                  Services <ChevronDown className="h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-64 bg-card/95 backdrop-blur-sm border-primary/20">
-                  <DropdownMenuLabel className="text-primary">Service Categories</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem 
-                    onClick={() => handleServiceCategoryClick('students')}
-                    className="cursor-pointer hover:bg-primary/10"
-                  >
-                    Students
-                    <span className="text-xs text-muted-foreground ml-2">Projects, Resume, Portfolio</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    onClick={() => handleServiceCategoryClick('business')}
-                    className="cursor-pointer hover:bg-primary/10"
-                  >
-                    Business Professionals
-                    <span className="text-xs text-muted-foreground ml-2">Websites, Marketing, R&D</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    onClick={() => handleServiceCategoryClick('career')}
-                    className="cursor-pointer hover:bg-primary/10"
-                  >
-                    Career Development
-                    <span className="text-xs text-muted-foreground ml-2">Interviews, Training</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="bg-transparent hover:bg-transparent focus:bg-transparent data-[active]:bg-transparent data-[state=open]:bg-transparent">
+                      Services
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="p-0">
+                      <div className="w-64 bg-card/95 backdrop-blur-sm border-primary/20 rounded-md border p-1">
+                        <div className="px-3 py-2 text-sm font-medium text-primary">Service Categories</div>
+                        <div className="h-px bg-border my-1"></div>
+                        <div 
+                          onClick={() => handleServiceCategoryClick('students')}
+                          className="cursor-pointer hover:bg-primary/10 px-3 py-2 text-sm rounded-sm transition-colors"
+                        >
+                          <div>Students</div>
+                          <div className="text-xs text-muted-foreground">Projects, Resume, Portfolio</div>
+                        </div>
+                        <div 
+                          onClick={() => handleServiceCategoryClick('business')}
+                          className="cursor-pointer hover:bg-primary/10 px-3 py-2 text-sm rounded-sm transition-colors"
+                        >
+                          <div>Business Professionals</div>
+                          <div className="text-xs text-muted-foreground">Websites, Marketing, R&D</div>
+                        </div>
+                        <div 
+                          onClick={() => handleServiceCategoryClick('career')}
+                          className="cursor-pointer hover:bg-primary/10 px-3 py-2 text-sm rounded-sm transition-colors"
+                        >
+                          <div>Career Development</div>
+                          <div className="text-xs text-muted-foreground">Interviews, Training</div>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
               
               <button 
                 onClick={() => scrollToSection('portfolio')}
