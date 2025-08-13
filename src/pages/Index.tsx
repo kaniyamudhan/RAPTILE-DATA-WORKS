@@ -84,9 +84,11 @@ const Index = () => {
                 About
               </button>
               
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors">
-                  Services <ChevronDown className="h-4 w-4" />
+              <DropdownMenu modal={false}>
+                <DropdownMenuTrigger asChild>
+                  <button className="flex items-center gap-1 hover:text-primary transition-colors">
+                    Services <ChevronDown className="h-4 w-4" />
+                  </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-64 bg-card/95 backdrop-blur-sm border-primary/20">
                   <DropdownMenuLabel className="text-primary">Service Categories</DropdownMenuLabel>
