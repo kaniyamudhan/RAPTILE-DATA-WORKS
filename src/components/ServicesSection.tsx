@@ -22,6 +22,7 @@ import {
   Search,
   Users
 } from "lucide-react";
+import servicesBgFuturistic from "@/assets/services-bg-futuristic.jpg";
 
 const services = [
   // AI & Automation (Most Popular)
@@ -237,8 +238,15 @@ export const ServicesSection = ({ initialCategory }: { initialCategory?: string 
     : services.filter(service => service.category === selectedCategory);
 
   return (
-    <section className="py-20 px-6" id="services">
-      <div className="container mx-auto">
+    <section className="py-20 px-6 relative overflow-hidden" id="services">
+      {/* Futuristic Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ backgroundImage: `url(${servicesBgFuturistic})` }}
+      />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/90" />
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
             Our Services

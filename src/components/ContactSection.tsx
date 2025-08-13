@@ -21,6 +21,7 @@ import {
   User,
   Globe
 } from "lucide-react";
+import contactBgFuturistic from "@/assets/contact-bg-futuristic.jpg";
 
 const serviceCategories = [
   { id: "final-year", label: "Final Year Project", icon: Code },
@@ -137,8 +138,15 @@ Contact: ${formData.email} | ${formData.phone}`;
   };
 
   return (
-    <section className="py-20 px-6 bg-secondary/5" id="contact">
-      <div className="container mx-auto max-w-6xl">
+    <section className="py-20 px-6 relative overflow-hidden" id="contact">
+      {/* Futuristic Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ backgroundImage: `url(${contactBgFuturistic})` }}
+      />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/90" />
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
             Get In Touch

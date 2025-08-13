@@ -143,49 +143,6 @@ Dark theme with neon accents - all colors in HSL
 }
 
 @layer components {
-  /* Section Angle Design with Scrolling Text */
-  .section-angled {
-    position: relative;
-    transform: skewY(-2deg);
-    margin: 4rem 0;
-    padding: 6rem 0;
-    overflow: hidden;
-  }
-
-  .section-angled > * {
-    transform: skewY(2deg);
-  }
-
-  .section-angled::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, 
-      hsl(var(--card)) 0%, 
-      hsl(var(--muted) / 0.5) 100%);
-    border-top: 1px solid hsl(var(--border));
-    border-bottom: 1px solid hsl(var(--border));
-  }
-
-  /* Scrolling Text Animation */
-  .scrolling-text {
-    position: absolute;
-    bottom: 1rem;
-    white-space: nowrap;
-    font-size: 0.875rem;
-    color: hsl(var(--muted-foreground) / 0.6);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .scrolling-text.rtl {
-    animation: scroll-rtl 30s linear infinite;
-  }
-
-  .scrolling-text.ltr {
-    animation: scroll-ltr 30s linear infinite;
-  }
-
   /* Glass effect utility */
   .glass-card {
     @apply bg-card/10 backdrop-blur-lg border border-white/10 rounded-2xl;
@@ -284,16 +241,6 @@ Dark theme with neon accents - all colors in HSL
       opacity: 1;
       transform: scale(1);
     }
-  }
-
-  @keyframes scroll-rtl {
-    0% { transform: translateX(100vw) skewY(2deg); }
-    100% { transform: translateX(-100%) skewY(2deg); }
-  }
-
-  @keyframes scroll-ltr {
-    0% { transform: translateX(-100%) skewY(2deg); }
-    100% { transform: translateX(100vw) skewY(2deg); }
   }
 
   .animate-float { animation: float 6s ease-in-out infinite; }

@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import testimonialsBgFuturistic from "@/assets/testimonials-bg-futuristic.jpg";
 
 const testimonials = [
   {
@@ -108,8 +109,15 @@ export const TestimonialsSection = () => {
   };
 
   return (
-    <section className="py-20 px-6" id="testimonials">
-      <div className="container mx-auto">
+    <section className="py-20 px-6 relative overflow-hidden" id="testimonials">
+      {/* Futuristic Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
+        style={{ backgroundImage: `url(${testimonialsBgFuturistic})` }}
+      />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/90" />
+      <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
             Client Success Stories
