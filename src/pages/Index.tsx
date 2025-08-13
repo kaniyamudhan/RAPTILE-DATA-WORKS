@@ -22,6 +22,7 @@ const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [careersModalOpen, setCareersModalOpen] = useState(false);
+  const [serviceCategory, setServiceCategory] = useState<string>("all");
 
   // Handle scroll to top button visibility
   useEffect(() => {
@@ -54,6 +55,11 @@ const Index = () => {
     scrollToSection('contact');
   };
 
+  const handleServiceCategoryClick = (category: string) => {
+    setServiceCategory(category);
+    scrollToSection('services');
+  };
+
   return (
     <div className="min-h-screen bg-background relative">
       {/* Navigation Header */}
@@ -78,21 +84,21 @@ const Index = () => {
                   <DropdownMenuLabel className="text-primary">Service Categories</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem 
-                    onClick={() => scrollToSection('services')}
+                    onClick={() => handleServiceCategoryClick('students')}
                     className="cursor-pointer hover:bg-primary/10"
                   >
                     Students
                     <span className="text-xs text-muted-foreground ml-2">Projects, Resume, Portfolio</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem 
-                    onClick={() => scrollToSection('services')}
+                    onClick={() => handleServiceCategoryClick('business')}
                     className="cursor-pointer hover:bg-primary/10"
                   >
                     Business Professionals
                     <span className="text-xs text-muted-foreground ml-2">Websites, Marketing, R&D</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem 
-                    onClick={() => scrollToSection('services')}
+                    onClick={() => handleServiceCategoryClick('career')}
                     className="cursor-pointer hover:bg-primary/10"
                   >
                     Career Development
@@ -153,7 +159,7 @@ const Index = () => {
               <div className="flex flex-col gap-4 pt-4">
                 <button 
                   onClick={() => {
-                    scrollToSection('services');
+                    handleServiceCategoryClick('all');
                     setMobileMenuOpen(false);
                   }}
                   className="text-left hover:text-primary transition-colors py-2"
@@ -218,7 +224,7 @@ const Index = () => {
           onExploreServices={handleExploreServices}
           onHireUs={handleHireUs}
         />
-        <ServicesSection />
+        <ServicesSection initialCategory={serviceCategory} />
         <PortfolioSection />
         <HireSection onContactUs={handleContactUs} />
         <TestimonialsSection />

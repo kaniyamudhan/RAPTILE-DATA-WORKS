@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -186,10 +186,16 @@ const services = [
   }
 ];
 
-export const ServicesSection = () => {
+export const ServicesSection = ({ initialCategory }: { initialCategory?: string } = {}) => {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory || "all");
+
+  useEffect(() => {
+    if (initialCategory && initialCategory !== selectedCategory) {
+      setSelectedCategory(initialCategory);
+    }
+  }, [initialCategory]);
 
   const handleServiceClick = (service: typeof services[0]) => {
     setSelectedService(service);
