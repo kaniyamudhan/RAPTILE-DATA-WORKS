@@ -101,7 +101,7 @@ export const TestimonialsSection = () => {
 
   const getVisibleTestimonials = () => {
     const result = [];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
       result.push(testimonials[(currentIndex + i) % testimonials.length]);
     }
     return result;
@@ -121,16 +121,16 @@ export const TestimonialsSection = () => {
 
         {/* Testimonials Carousel */}
         <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 max-w-4xl mx-auto">
             {getVisibleTestimonials().map((testimonial, index) => (
               <Card
                 key={`${testimonial.id}-${currentIndex}`}
                 className={`glass-card hover-lift transition-all duration-500 ${
-                  index === 1 ? 'md:scale-105 md:z-10 neon-glow' : 'md:scale-95'
+                  index === 0 ? 'md:scale-105 md:z-10 neon-glow' : 'md:scale-100'
                 }`}
                 style={{ 
                   animationDelay: `${index * 0.1}s`,
-                  transform: index === 1 ? 'translateY(-10px)' : undefined
+                  transform: index === 0 ? 'translateY(-10px)' : undefined
                 }}
               >
                 <CardContent className="p-6">

@@ -56,7 +56,8 @@ const services = [
       "Payment gateway integration",
       "WhatsApp business API"
     ],
-    category: "business"
+    category: "business",
+    popular: true
   },
   {
     id: "digital-marketing",
@@ -72,7 +73,8 @@ const services = [
       "Lead generation systems",
       "Analytics & reporting"
     ],
-    category: "business"
+    category: "business",
+    popular: true
   },
   {
     id: "company-poc",
