@@ -17,49 +17,135 @@ import {
   Bot,
   TrendingUp,
   Building,
-  Zap
+  Zap,
+  Lightbulb,
+  Search,
+  Users
 } from "lucide-react";
 
 const services = [
-  // Students Category
+  // AI & Automation (Most Popular)
   {
-    id: "final-year",
-    title: "Final Year Project Development",
-    description: "Complete project solutions with PPT & Viva support",
-    icon: GraduationCap,
-    price: "₹5,000 - ₹15,000",
+    id: "ai-agents",
+    title: "AI Agents & Automation",
+    description: "n8n, Make.com, API integrations, chatbots, filtering",
+    icon: Bot,
+    price: "₹15,000 - ₹50,000",
     duration: "2-4 weeks",
     features: [
-      "Complete source code",
-      "Documentation & Reports",
-      "PPT presentation",
-      "Viva support & training",
-      "Project deployment"
+      "Custom automation workflows",
+      "API integrations & webhooks",
+      "AI chatbot development",
+      "Data filtering & processing",
+      "n8n & Make.com expert setup"
     ],
-    category: "students"
+    category: "business",
+    popular: true
   },
   {
-    id: "resume",
-    title: "Resume & LinkedIn Optimization",
-    description: "Professional resume design + LinkedIn profile optimization",
-    icon: User,
-    price: "₹1,500 - ₹3,000",
-    duration: "3-5 days",
+    id: "local-business",
+    title: "Local Business Solutions",
+    description: "Complete websites with marketing & e-commerce",
+    icon: Building,
+    price: "₹25,000 - ₹75,000",
+    duration: "3-5 weeks",
     features: [
-      "ATS-friendly resume design",
-      "LinkedIn profile optimization",
-      "Cover letter template",
-      "Interview preparation tips",
-      "Industry-specific keywords"
+      "Business website development",
+      "E-commerce functionality",
+      "Digital marketing setup",
+      "Payment gateway integration",
+      "WhatsApp business API"
     ],
-    category: "students"
+    category: "business"
   },
+  {
+    id: "digital-marketing",
+    title: "Digital Marketing Solutions",
+    description: "SEO, social media, content marketing & lead generation",
+    icon: TrendingUp,
+    price: "₹20,000 - ₹60,000",
+    duration: "4-6 weeks",
+    features: [
+      "SEO optimization",
+      "Social media management",
+      "Content marketing strategy",
+      "Lead generation systems",
+      "Analytics & reporting"
+    ],
+    category: "business"
+  },
+  {
+    id: "company-poc",
+    title: "Company PoC Project Builds",
+    description: "Proof of concept development for enterprise solutions",
+    icon: Lightbulb,
+    price: "₹30,000 - ₹1,00,000",
+    duration: "4-8 weeks",
+    features: [
+      "MVP development",
+      "Technical feasibility study",
+      "Prototype creation",
+      "Technology consultation",
+      "Scalability planning"
+    ],
+    category: "business"
+  },
+  {
+    id: "rd-works",
+    title: "R&D Works",
+    description: "Research & development for innovative solutions",
+    icon: Search,
+    price: "₹40,000 - ₹1,50,000",
+    duration: "6-12 weeks",
+    features: [
+      "Technology research",
+      "Innovation consulting",
+      "Custom solution development",
+      "Market analysis",
+      "Implementation roadmap"
+    ],
+    category: "business"
+  },
+  // Career Development
+  {
+    id: "career-coaching",
+    title: "Career Coaching & Mentorship",
+    description: "1-on-1 guidance for career advancement",
+    icon: Users,
+    price: "₹10,000 - ₹25,000",
+    duration: "4-6 weeks",
+    features: [
+      "Personalized career roadmap",
+      "Skill gap analysis",
+      "Industry networking guidance",
+      "Salary negotiation tips",
+      "Long-term career planning"
+    ],
+    category: "career"
+  },
+  {
+    id: "tech-training",
+    title: "Technical Training Programs",
+    description: "Hands-on training in latest technologies",
+    icon: Code,
+    price: "₹15,000 - ₹40,000",
+    duration: "6-8 weeks",
+    features: [
+      "Live coding sessions",
+      "Project-based learning",
+      "Industry best practices",
+      "Certification assistance",
+      "Job placement support"
+    ],
+    category: "career"
+  },
+  // Students Category (Lower priority)
   {
     id: "portfolio",
     title: "Personal Portfolio Websites",
     description: "Professional portfolios for job seekers & freelancers",
     icon: Globe,
-    price: "₹3,000 - ₹8,000",
+    price: "₹5,000 - ₹15,000",
     duration: "1-2 weeks",
     features: [
       "Responsive design",
@@ -71,12 +157,28 @@ const services = [
     category: "students"
   },
   {
+    id: "final-year",
+    title: "Final Year Project Development",
+    description: "Complete project solutions with PPT & Viva support",
+    icon: GraduationCap,
+    price: "₹8,000 - ₹25,000",
+    duration: "3-5 weeks",
+    features: [
+      "Complete source code",
+      "Documentation & Reports",
+      "PPT presentation",
+      "Viva support & training",
+      "Project deployment"
+    ],
+    category: "students"
+  },
+  {
     id: "interview",
     title: "Mock Interview + Kits",
     description: "Interview preparation with personalized feedback",
     icon: MessageCircle,
-    price: "₹2,000 - ₹5,000",
-    duration: "1 week",
+    price: "₹3,000 - ₹8,000",
+    duration: "1-2 weeks",
     features: [
       "1-on-1 mock interviews",
       "Technical & behavioral rounds",
@@ -87,102 +189,20 @@ const services = [
     category: "students"
   },
   {
-    id: "ai-agents",
-    title: "AI Agents & Automation",
-    description: "n8n, Make.com, API integrations, chatbots, filtering",
-    icon: Bot,
-    price: "₹8,000 - ₹20,000",
-    duration: "2-3 weeks",
+    id: "resume",
+    title: "Resume & LinkedIn Optimization",
+    description: "Professional resume design + LinkedIn profile optimization",
+    icon: User,
+    price: "₹2,000 - ₹5,000",
+    duration: "3-5 days",
     features: [
-      "Custom automation workflows",
-      "API integrations",
-      "Chatbot development",
-      "Data filtering systems",
-      "n8n & Make.com setup"
+      "ATS-friendly resume design",
+      "LinkedIn profile optimization",
+      "Cover letter template",
+      "Interview preparation tips",
+      "Industry-specific keywords"
     ],
     category: "students"
-  },
-  // Business Professionals Category
-  {
-    id: "local-business",
-    title: "Local Business Solutions",
-    description: "Complete websites with marketing & e-commerce",
-    icon: Building,
-    price: "₹15,000 - ₹40,000",
-    duration: "3-4 weeks",
-    features: [
-      "Business website development",
-      "E-commerce functionality",
-      "Digital marketing setup",
-      "Payment gateway integration",
-      "WhatsApp business API"
-    ],
-    category: "business"
-  },
-  {
-    id: "marketing",
-    title: "Digital Marketing Solutions",
-    description: "SEO, social media, and online presence optimization",
-    icon: TrendingUp,
-    price: "₹10,000 - ₹25,000",
-    duration: "2-3 weeks",
-    features: [
-      "SEO optimization",
-      "Social media strategy",
-      "Google Ads setup",
-      "Analytics integration",
-      "Brand identity development"
-    ],
-    category: "business"
-  },
-  {
-    id: "poc",
-    title: "Company PoC Project Builds",
-    description: "Proof of concept development for business requirements",
-    icon: Briefcase,
-    price: "₹20,000 - ₹50,000",
-    duration: "3-5 weeks",
-    features: [
-      "Custom solution design",
-      "Scalable architecture",
-      "API integrations",
-      "Testing & validation",
-      "Technical documentation"
-    ],
-    category: "business"
-  },
-  {
-    id: "rnd",
-    title: "R&D Works",
-    description: "Research & development projects for innovation",
-    icon: Zap,
-    price: "₹25,000 - ₹60,000",
-    duration: "4-6 weeks",
-    features: [
-      "Technology research",
-      "Prototype development",
-      "Feasibility studies",
-      "Innovation consulting",
-      "Market analysis"
-    ],
-    category: "business"
-  },
-  // Career Section
-  {
-    id: "career-guidance",
-    title: "Career Guidance & Mentorship",
-    description: "Personalized career path planning and mentorship",
-    icon: GraduationCap,
-    price: "₹3,000 - ₹8,000",
-    duration: "2 weeks",
-    features: [
-      "Career path analysis",
-      "Skill gap assessment",
-      "Industry insights",
-      "Mentorship sessions",
-      "Goal setting & tracking"
-    ],
-    category: "career"
   }
 ];
 
@@ -247,10 +267,17 @@ export const ServicesSection = ({ initialCategory }: { initialCategory?: string 
             return (
               <Card
                 key={service.id}
-                className="glass-card hover-lift cursor-pointer group transition-all duration-300 hover:neon-glow"
+                className="glass-card hover-lift cursor-pointer group transition-all duration-300 hover:neon-glow relative"
                 onClick={() => handleServiceClick(service)}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
+                {(service as any).popular && (
+                  <div className="absolute -top-3 -right-3 z-10">
+                    <div className="bg-gradient-to-r from-primary to-neon-green text-background px-3 py-1 rounded-full text-xs font-bold animate-pulse-neon">
+                      MOST POPULAR
+                    </div>
+                  </div>
+                )}
                 <CardHeader className="text-center">
                   <div className="mx-auto mb-4 p-4 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
                     <IconComponent className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
