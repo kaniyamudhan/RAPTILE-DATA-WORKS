@@ -24,6 +24,7 @@ const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [careersModalOpen, setCareersModalOpen] = useState(false);
   const [serviceCategory, setServiceCategory] = useState<string>("all");
+  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
 
   // Handle scroll to top button visibility
   useEffect(() => {
@@ -84,38 +85,45 @@ const Index = () => {
                 About
               </button>
               
-              <DropdownMenu modal={false}>
-                <DropdownMenuTrigger asChild>
-                  <button className="flex items-center gap-1 hover:text-primary transition-colors">
-                    Services <ChevronDown className="h-4 w-4" />
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-64 bg-card/95 backdrop-blur-sm border-primary/20">
-                  <DropdownMenuLabel className="text-primary">Service Categories</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem 
-                    onClick={() => handleServiceCategoryClick('students')}
-                    className="cursor-pointer hover:bg-primary/10"
-                  >
-                    Students
-                    <span className="text-xs text-muted-foreground ml-2">Projects, Resume, Portfolio</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    onClick={() => handleServiceCategoryClick('business')}
-                    className="cursor-pointer hover:bg-primary/10"
-                  >
-                    Business Professionals
-                    <span className="text-xs text-muted-foreground ml-2">Websites, Marketing, R&D</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    onClick={() => handleServiceCategoryClick('career')}
-                    className="cursor-pointer hover:bg-primary/10"
-                  >
-                    Career Development
-                    <span className="text-xs text-muted-foreground ml-2">Interviews, Training</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <div 
+                className="relative"
+                onMouseEnter={() => setServicesDropdownOpen(true)}
+                onMouseLeave={() => setServicesDropdownOpen(false)}
+              >
+                <button className="flex items-center gap-1 hover:text-primary transition-colors">
+                  Services <ChevronDown className="h-4 w-4" />
+                </button>
+                
+                {servicesDropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-64 bg-card/95 backdrop-blur-sm border border-primary/20 rounded-md shadow-lg z-50 animate-in fade-in-0 zoom-in-95 duration-200">
+                    <div className="p-2">
+                      <div className="px-2 py-1.5 text-sm font-semibold text-primary">Service Categories</div>
+                      <div className="-mx-1 my-1 h-px bg-muted"></div>
+                      <button
+                        onClick={() => handleServiceCategoryClick('students')}
+                        className="w-full text-left px-2 py-1.5 text-sm rounded-sm hover:bg-primary/10 transition-colors cursor-pointer"
+                      >
+                        Students
+                        <span className="text-xs text-muted-foreground ml-2">Projects, Resume, Portfolio</span>
+                      </button>
+                      <button
+                        onClick={() => handleServiceCategoryClick('business')}
+                        className="w-full text-left px-2 py-1.5 text-sm rounded-sm hover:bg-primary/10 transition-colors cursor-pointer"
+                      >
+                        Business Professionals
+                        <span className="text-xs text-muted-foreground ml-2">Websites, Marketing, R&D</span>
+                      </button>
+                      <button
+                        onClick={() => handleServiceCategoryClick('career')}
+                        className="w-full text-left px-2 py-1.5 text-sm rounded-sm hover:bg-primary/10 transition-colors cursor-pointer"
+                      >
+                        Career Development
+                        <span className="text-xs text-muted-foreground ml-2">Interviews, Training</span>
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
               
               <button 
                 onClick={() => scrollToSection('portfolio')}
