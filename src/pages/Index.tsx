@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { FloatingHelpBot } from "@/components/FloatingHelpBot";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { ArrowUp, Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 import {
   DropdownMenu,
@@ -162,6 +163,8 @@ const Index = () => {
               >
                 Contact
               </Button>
+              
+              <ThemeToggle />
             </div>
 
             {/* Mobile Menu Button */}
