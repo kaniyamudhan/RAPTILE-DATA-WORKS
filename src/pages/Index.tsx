@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { HeroSection } from "@/components/HeroSection";
+import { AboutSection } from "@/components/AboutSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { PortfolioSection } from "@/components/PortfolioSection";
 import { HireSection } from "@/components/HireSection";
@@ -76,6 +77,13 @@ const Index = () => {
             </div>
             
             <div className="hidden md:flex items-center gap-6">
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="hover:text-primary transition-colors"
+              >
+                About
+              </button>
+              
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors">
                   Services <ChevronDown className="h-4 w-4" />
@@ -159,6 +167,15 @@ const Index = () => {
               <div className="flex flex-col gap-4 pt-4">
                 <button 
                   onClick={() => {
+                    scrollToSection('about');
+                    setMobileMenuOpen(false);
+                  }}
+                  className="text-left hover:text-primary transition-colors py-2"
+                >
+                  About
+                </button>
+                <button 
+                  onClick={() => {
                     handleServiceCategoryClick('all');
                     setMobileMenuOpen(false);
                   }}
@@ -224,6 +241,7 @@ const Index = () => {
           onExploreServices={handleExploreServices}
           onHireUs={handleHireUs}
         />
+        <AboutSection />
         <ServicesSection initialCategory={serviceCategory} />
         <PortfolioSection />
         <HireSection onContactUs={handleContactUs} />
