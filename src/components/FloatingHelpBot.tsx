@@ -80,21 +80,21 @@ export const FloatingHelpBot = () => {
   return (
     <>
       {/* Floating Button */}
-      <div className="fixed bottom-6 right-6 z-50">
+      <div className="fixed bottom-6 right-4 md:right-6 z-50">
         {!isOpen && (
           <Button
             onClick={toggleBot}
             size="lg"
-            className="rounded-full w-16 h-16 shadow-2xl animate-pulse-neon hover-lift group"
+            className="rounded-full w-14 h-14 md:w-16 md:h-16 shadow-2xl animate-pulse-neon hover-lift group"
           >
-            <MessageCircle className="h-8 w-8 group-hover:scale-110 transition-transform" />
+            <MessageCircle className="h-6 w-6 md:h-8 md:w-8 group-hover:scale-110 transition-transform" />
           </Button>
         )}
       </div>
 
       {/* Help Bot Modal */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="glass-card border-primary/20 max-w-md fixed bottom-6 right-6 top-auto left-auto m-0 translate-x-0 translate-y-0">
+        <DialogContent className="glass-card border-primary/20 max-w-[95vw] md:max-w-md fixed bottom-4 right-4 md:bottom-6 md:right-6 top-auto left-auto m-0 translate-x-0 translate-y-0 max-h-[85vh] md:max-h-auto">
           <DialogHeader className="flex flex-row items-center justify-between space-y-0 pb-4">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-full bg-primary/10 animate-pulse">
@@ -126,7 +126,7 @@ export const FloatingHelpBot = () => {
           </DialogHeader>
 
           {!isMinimized && (
-            <div className="space-y-4 max-h-96 overflow-y-auto">
+            <div className="space-y-4 max-h-[60vh] md:max-h-96 overflow-y-auto">
               {/* Quick Actions */}
               <div>
                 <h4 className="font-semibold mb-3 flex items-center gap-2">

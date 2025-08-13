@@ -66,13 +66,13 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-40 glass-card border-b border-primary/10">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 md:gap-3 overflow-hidden">
               <img 
                 src="/lovable-uploads/0103d35b-f35d-4893-91ab-74a6d2182b0b.png" 
                 alt="Raptile DataWorks" 
-                className="w-10 h-10"
+                className="w-8 h-8 md:w-10 md:h-10 flex-shrink-0"
               />
-              <span className="text-xl font-bold text-gradient">Raptile DataWorks</span>
+              <span className="text-lg md:text-xl font-bold text-gradient truncate min-w-0">Raptile DataWorks</span>
             </div>
             
             <div className="hidden md:flex items-center gap-6">
