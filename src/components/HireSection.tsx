@@ -227,30 +227,11 @@ export const HireSection = ({ onContactUs }: { onContactUs: () => void }) => {
                 Let's Build Together
               </CardTitle>
               <CardDescription className="text-lg">
-                Have a unique project in mind? We love taking on challenging projects 
-                and bringing innovative ideas to life. Let's discuss your vision.
+                Ready to start your project? Contact us to discuss your requirements and get a personalized quote.
               </CardDescription>
             </CardHeader>
             
             <CardContent className="text-center">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                <div className="glass-card p-4">
-                  <Code2 className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <div className="font-semibold">Custom Development</div>
-                  <div className="text-sm text-muted-foreground">Tailored solutions</div>
-                </div>
-                <div className="glass-card p-4">
-                  <Zap className="h-8 w-8 text-accent mx-auto mb-2" />
-                  <div className="font-semibold">Rapid Delivery</div>
-                  <div className="text-sm text-muted-foreground">Fast turnaround</div>
-                </div>
-                <div className="glass-card p-4">
-                  <CheckCircle className="h-8 w-8 text-neon-green mx-auto mb-2" />
-                  <div className="font-semibold">Quality Assured</div>
-                  <div className="text-sm text-muted-foreground">Tested & reliable</div>
-                </div>
-              </div>
-              
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
                   onClick={onContactUs}

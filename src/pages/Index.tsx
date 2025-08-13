@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { FloatingHelpBot } from "@/components/FloatingHelpBot";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { ArrowUp, Menu, X, ChevronDown, ExternalLink } from "lucide-react";
 import {
   DropdownMenu,
@@ -17,6 +18,13 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const Index = () => {
@@ -84,36 +92,41 @@ const Index = () => {
                 About
               </button>
               
-              <DropdownMenu>
-                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors">
-                  Services <ChevronDown className="h-4 w-4" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-64 bg-card/95 backdrop-blur-sm border-primary/20">
-                  <DropdownMenuLabel className="text-primary">Service Categories</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem 
-                    onClick={() => handleServiceCategoryClick('students')}
-                    className="cursor-pointer hover:bg-primary/10"
-                  >
-                    Students
-                    <span className="text-xs text-muted-foreground ml-2">Projects, Resume, Portfolio</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    onClick={() => handleServiceCategoryClick('business')}
-                    className="cursor-pointer hover:bg-primary/10"
-                  >
-                    Business Professionals
-                    <span className="text-xs text-muted-foreground ml-2">Websites, Marketing, R&D</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem 
-                    onClick={() => handleServiceCategoryClick('career')}
-                    className="cursor-pointer hover:bg-primary/10"
-                  >
-                    Career Development
-                    <span className="text-xs text-muted-foreground ml-2">Interviews, Training</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              <NavigationMenu>
+                <NavigationMenuList>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="hover:text-primary transition-colors bg-transparent">
+                      Services
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent className="w-64 glass-card border-primary/20 p-4">
+                      <div className="space-y-2">
+                        <div className="text-primary font-semibold mb-2">Service Categories</div>
+                        <button
+                          onClick={() => handleServiceCategoryClick('students')}
+                          className="block w-full text-left p-2 rounded hover:bg-primary/10 transition-colors"
+                        >
+                          <div className="font-medium">Students</div>
+                          <div className="text-xs text-muted-foreground">Projects, Resume, Portfolio</div>
+                        </button>
+                        <button
+                          onClick={() => handleServiceCategoryClick('business')}
+                          className="block w-full text-left p-2 rounded hover:bg-primary/10 transition-colors"
+                        >
+                          <div className="font-medium">Business Professionals</div>
+                          <div className="text-xs text-muted-foreground">Websites, Marketing, R&D</div>
+                        </button>
+                        <button
+                          onClick={() => handleServiceCategoryClick('career')}
+                          className="block w-full text-left p-2 rounded hover:bg-primary/10 transition-colors"
+                        >
+                          <div className="font-medium">Career Development</div>
+                          <div className="text-xs text-muted-foreground">Interviews, Training</div>
+                        </button>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
               
               <button 
                 onClick={() => scrollToSection('portfolio')}
@@ -150,6 +163,8 @@ const Index = () => {
               >
                 Contact
               </Button>
+              
+              <ThemeToggle />
             </div>
 
             {/* Mobile Menu Button */}
@@ -241,11 +256,17 @@ const Index = () => {
           onExploreServices={handleExploreServices}
           onHireUs={handleHireUs}
         />
-        <AboutSection />
+        <div className="section-angled">
+          <AboutSection />
+        </div>
         <ServicesSection initialCategory={serviceCategory} />
-        <PortfolioSection />
+        <div className="section-angled">
+          <PortfolioSection />
+        </div>
         <HireSection onContactUs={handleContactUs} />
-        <TestimonialsSection />
+        <div className="section-angled">
+          <TestimonialsSection />
+        </div>
         <ContactSection />
       </div>
 
