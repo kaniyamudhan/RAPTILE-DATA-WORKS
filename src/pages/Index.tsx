@@ -6,6 +6,7 @@ import { PortfolioSection } from "@/components/PortfolioSection";
 import { HireSection } from "@/components/HireSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
+import { ScrollingText } from "@/components/ScrollingText";
 import { FloatingHelpBot } from "@/components/FloatingHelpBot";
 import { Button } from "@/components/ui/button";
 import { ArrowUp, Menu, X, ChevronDown, ExternalLink } from "lucide-react";
@@ -254,14 +255,17 @@ const Index = () => {
           onHireUs={handleHireUs}
         />
         <div className="section-angled">
+          <ScrollingText direction="rtl" delay={0} />
           <AboutSection />
         </div>
         <ServicesSection initialCategory={serviceCategory} />
         <div className="section-angled">
+          <ScrollingText direction="ltr" delay={2000} />
           <PortfolioSection />
         </div>
         <HireSection onContactUs={handleContactUs} />
         <div className="section-angled">
+          <ScrollingText direction="rtl" delay={4000} />
           <TestimonialsSection />
         </div>
         <ContactSection />
