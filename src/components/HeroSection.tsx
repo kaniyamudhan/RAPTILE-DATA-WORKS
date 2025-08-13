@@ -94,37 +94,26 @@ export const HeroSection = ({ onExploreServices, onHireUs }: {
           </div>
         </div>
 
-        {/* Company Name with Gamified AI Styling */}
+        {/* Company Name with Futuristic Styling */}
         <div className="mb-6">
-          <h1 className="text-7xl md:text-8xl lg:text-9xl font-black animate-slide-up tracking-wider leading-none">
-            {/* RAPTILE - First Line */}
-            <div className="relative mb-2">
-              <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 blur-sm scale-105">
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold animate-slide-up tracking-wider">
+            <span className="relative inline-block">
+              <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-primary via-neon-green to-primary animate-pulse blur-sm">
                 RAPTILE
               </span>
-              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-white font-black drop-shadow-2xl">
+              <span className="relative text-gradient animate-pulse">
                 RAPTILE
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-orange-500/20 via-orange-400/30 to-orange-500/20 blur-xl opacity-60 animate-pulse" />
-            </div>
-            
-            {/* DATAWORKS - Second Line */}
-            <div className="relative">
-              <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-orange-300 via-white to-orange-300 blur-sm scale-105">
+            </span>
+            <br />
+            <span className="relative inline-block">
+              <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-neon-violet via-primary to-neon-violet animate-pulse blur-sm">
                 DATAWORKS
               </span>
-              <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-white to-orange-200 font-black drop-shadow-2xl">
+              <span className="relative text-gradient-violet animate-pulse">
                 DATAWORKS
               </span>
-              <div className="absolute -inset-2 bg-gradient-to-r from-orange-400/15 via-white/20 to-orange-400/15 blur-xl opacity-50 animate-pulse" style={{ animationDelay: '0.5s' }} />
-            </div>
-            
-            {/* AI Enhancement Text */}
-            <div className="relative mt-4 text-sm md:text-lg lg:text-xl font-semibold tracking-widest text-orange-300/80 animate-pulse">
-              <span className="relative">
-                AI POWERED • FUTURE READY • GAMIFIED SOLUTIONS
-              </span>
-            </div>
+            </span>
           </h1>
         </div>
 
