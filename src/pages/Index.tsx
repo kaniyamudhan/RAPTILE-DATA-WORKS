@@ -207,8 +207,8 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4 text-primary">Contact</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>+91 98765 43210</li>
-                <li>hello@raptile.dev</li>
+                <li>+91 6374172911</li>
+                <li>raptilesdataworks@gmail.com</li>
                 <li>Available 24/7</li>
                 <li>Response: 2-4 hours</li>
               </ul>

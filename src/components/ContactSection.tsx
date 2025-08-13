@@ -36,24 +36,24 @@ const contactMethods = [
     title: "WhatsApp",
     description: "Quick response for urgent queries",
     icon: MessageCircle,
-    value: "+91 98765 43210",
-    action: () => window.open("https://wa.me/919876543210", "_blank"),
+    value: "+91 6374172911",
+    action: () => window.open("https://wa.me/916374172911", "_blank"),
     color: "text-neon-green"
   },
   {
     title: "Email",
     description: "Detailed project discussions",
     icon: Mail,
-    value: "hello@raptile.dev",
-    action: () => window.open("mailto:hello@raptile.dev", "_blank"),
+    value: "raptilesdataworks@gmail.com",
+    action: () => window.open("mailto:raptilesdataworks@gmail.com", "_blank"),
     color: "text-primary"
   },
   {
     title: "Phone",
     description: "Direct call for immediate support",
     icon: Phone,
-    value: "+91 98765 43210",
-    action: () => window.open("tel:+919876543210", "_blank"),
+    value: "+91 6374172911",
+    action: () => window.open("tel:+916374172911", "_blank"),
     color: "text-accent"
   }
 ];
@@ -113,7 +113,7 @@ Message: ${formData.message}
 
 Contact: ${formData.email} | ${formData.phone}`;
 
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/916374172911?text=${encodeURIComponent(whatsappMessage)}`;
     
     toast({
       title: "Form Submitted!",
@@ -276,7 +276,7 @@ Contact: ${formData.email} | ${formData.phone}`;
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => handleInputChange("phone", e.target.value)}
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 6374172911"
                       className="glass-card border-primary/20"
                     />
                   </div>

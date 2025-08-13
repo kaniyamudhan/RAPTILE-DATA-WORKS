@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Code, 
   Briefcase, 
@@ -12,10 +13,15 @@ import {
   Rocket,
   IndianRupee,
   Clock,
-  CheckCircle
+  CheckCircle,
+  Bot,
+  TrendingUp,
+  Building,
+  Zap
 } from "lucide-react";
 
 const services = [
+  // Students Category
   {
     id: "final-year",
     title: "Final Year Project Development",
@@ -30,7 +36,7 @@ const services = [
       "Viva support & training",
       "Project deployment"
     ],
-    category: "Academic"
+    category: "students"
   },
   {
     id: "resume",
@@ -46,23 +52,7 @@ const services = [
       "Interview preparation tips",
       "Industry-specific keywords"
     ],
-    category: "Career"
-  },
-  {
-    id: "poc",
-    title: "Company PoC Project Builds",
-    description: "Proof of concept development for business requirements",
-    icon: Briefcase,
-    price: "₹10,000 - ₹25,000",
-    duration: "1-3 weeks",
-    features: [
-      "Custom solution design",
-      "Scalable architecture",
-      "API integrations",
-      "Testing & validation",
-      "Technical documentation"
-    ],
-    category: "Business"
+    category: "students"
   },
   {
     id: "portfolio",
@@ -78,23 +68,7 @@ const services = [
       "Contact forms",
       "Portfolio showcase"
     ],
-    category: "Web Development"
-  },
-  {
-    id: "business-website",
-    title: "Local Business Websites",
-    description: "Complete websites with Razorpay & WhatsApp integration",
-    icon: Rocket,
-    price: "₹8,000 - ₹20,000",
-    duration: "2-3 weeks",
-    features: [
-      "E-commerce functionality",
-      "Payment gateway integration",
-      "WhatsApp business API",
-      "Admin dashboard",
-      "Mobile-first design"
-    ],
-    category: "E-commerce"
+    category: "students"
   },
   {
     id: "interview",
@@ -110,13 +84,112 @@ const services = [
       "Interview kit with common questions",
       "Follow-up sessions"
     ],
-    category: "Career"
+    category: "students"
+  },
+  {
+    id: "ai-agents",
+    title: "AI Agents & Automation",
+    description: "n8n, Make.com, API integrations, chatbots, filtering",
+    icon: Bot,
+    price: "₹8,000 - ₹20,000",
+    duration: "2-3 weeks",
+    features: [
+      "Custom automation workflows",
+      "API integrations",
+      "Chatbot development",
+      "Data filtering systems",
+      "n8n & Make.com setup"
+    ],
+    category: "students"
+  },
+  // Business Professionals Category
+  {
+    id: "local-business",
+    title: "Local Business Solutions",
+    description: "Complete websites with marketing & e-commerce",
+    icon: Building,
+    price: "₹15,000 - ₹40,000",
+    duration: "3-4 weeks",
+    features: [
+      "Business website development",
+      "E-commerce functionality",
+      "Digital marketing setup",
+      "Payment gateway integration",
+      "WhatsApp business API"
+    ],
+    category: "business"
+  },
+  {
+    id: "marketing",
+    title: "Digital Marketing Solutions",
+    description: "SEO, social media, and online presence optimization",
+    icon: TrendingUp,
+    price: "₹10,000 - ₹25,000",
+    duration: "2-3 weeks",
+    features: [
+      "SEO optimization",
+      "Social media strategy",
+      "Google Ads setup",
+      "Analytics integration",
+      "Brand identity development"
+    ],
+    category: "business"
+  },
+  {
+    id: "poc",
+    title: "Company PoC Project Builds",
+    description: "Proof of concept development for business requirements",
+    icon: Briefcase,
+    price: "₹20,000 - ₹50,000",
+    duration: "3-5 weeks",
+    features: [
+      "Custom solution design",
+      "Scalable architecture",
+      "API integrations",
+      "Testing & validation",
+      "Technical documentation"
+    ],
+    category: "business"
+  },
+  {
+    id: "rnd",
+    title: "R&D Works",
+    description: "Research & development projects for innovation",
+    icon: Zap,
+    price: "₹25,000 - ₹60,000",
+    duration: "4-6 weeks",
+    features: [
+      "Technology research",
+      "Prototype development",
+      "Feasibility studies",
+      "Innovation consulting",
+      "Market analysis"
+    ],
+    category: "business"
+  },
+  // Career Section
+  {
+    id: "career-guidance",
+    title: "Career Guidance & Mentorship",
+    description: "Personalized career path planning and mentorship",
+    icon: GraduationCap,
+    price: "₹3,000 - ₹8,000",
+    duration: "2 weeks",
+    features: [
+      "Career path analysis",
+      "Skill gap assessment",
+      "Industry insights",
+      "Mentorship sessions",
+      "Goal setting & tracking"
+    ],
+    category: "career"
   }
 ];
 
 export const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<string>("all");
 
   const handleServiceClick = (service: typeof services[0]) => {
     setSelectedService(service);
@@ -126,10 +199,14 @@ export const ServicesSection = () => {
   const handleBookService = (serviceId: string) => {
     // This would integrate with Razorpay in a real implementation
     const whatsappMessage = `Hi! I'm interested in the ${selectedService?.title} service. Can we discuss the details?`;
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/916374172911?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
     setIsModalOpen(false);
   };
+
+  const filteredServices = selectedCategory === "all" 
+    ? services 
+    : services.filter(service => service.category === selectedCategory);
 
   return (
     <section className="py-20 px-6" id="services">
@@ -138,13 +215,28 @@ export const ServicesSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
             Our Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             Professional solutions to accelerate your career and business growth
           </p>
+          
+          {/* Category Filter */}
+          <div className="flex justify-center mb-8">
+            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+              <SelectTrigger className="w-[280px] glass-card border-primary/20">
+                <SelectValue placeholder="Select Category" />
+              </SelectTrigger>
+              <SelectContent className="glass-card border-primary/20">
+                <SelectItem value="all">All Services</SelectItem>
+                <SelectItem value="students">Students</SelectItem>
+                <SelectItem value="business">Business Professionals</SelectItem>
+                <SelectItem value="career">Career Development</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
+          {filteredServices.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <Card
