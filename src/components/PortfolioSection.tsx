@@ -15,7 +15,6 @@ import {
   Globe,
   User
 } from "lucide-react";
-import portfolioBgFuturistic from "@/assets/portfolio-bg-futuristic.jpg";
 
 const portfolioProjects = [
   {
@@ -214,15 +213,8 @@ export const PortfolioSection = () => {
   };
 
   return (
-    <section className="py-20 px-6 relative overflow-hidden" id="portfolio">
-      {/* Futuristic Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={{ backgroundImage: `url(${portfolioBgFuturistic})` }}
-      />
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/90" />
-      <div className="container mx-auto relative z-10">
+    <section className="py-20 px-6 bg-secondary/5" id="portfolio">
+      <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
             Portfolio Vault

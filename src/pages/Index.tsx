@@ -253,11 +253,17 @@ const Index = () => {
           onExploreServices={handleExploreServices}
           onHireUs={handleHireUs}
         />
-        <AboutSection />
+        <div className="section-angled">
+          <AboutSection />
+        </div>
         <ServicesSection initialCategory={serviceCategory} />
-        <PortfolioSection />
+        <div className="section-angled">
+          <PortfolioSection />
+        </div>
         <HireSection onContactUs={handleContactUs} />
-        <TestimonialsSection />
+        <div className="section-angled">
+          <TestimonialsSection />
+        </div>
         <ContactSection />
       </div>
 

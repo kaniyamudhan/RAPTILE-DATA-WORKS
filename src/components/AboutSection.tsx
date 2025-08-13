@@ -12,7 +12,6 @@ import {
   Settings
 } from "lucide-react";
 import aboutHeroImage from "@/assets/about-hero-image.jpg";
-import aboutBgFuturistic from "@/assets/about-bg-futuristic.jpg";
 
 const stats = [
   {
@@ -76,13 +75,9 @@ export const AboutSection = () => {
 
   return (
     <section id="about" className="py-20 px-6 relative overflow-hidden">
-      {/* Futuristic Background */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={{ backgroundImage: `url(${aboutBgFuturistic})` }}
-      />
-      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/90 via-background/60 to-background/90" />
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/5 to-background" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(180,100,50,0.1),transparent_50%)]" />
       
       <div className="container mx-auto relative z-10">
         {/* Section Header */}
