@@ -7,11 +7,21 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { FloatingHelpBot } from "@/components/FloatingHelpBot";
 import { Button } from "@/components/ui/button";
-import { ArrowUp, Menu, X } from "lucide-react";
+import { ArrowUp, Menu, X, ChevronDown, ExternalLink } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 const Index = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [careersModalOpen, setCareersModalOpen] = useState(false);
 
   // Handle scroll to top button visibility
   useEffect(() => {
@@ -60,30 +70,65 @@ const Index = () => {
             </div>
             
             <div className="hidden md:flex items-center gap-6">
-              <button 
-                onClick={() => scrollToSection('services')}
-                className="hover:text-primary transition-colors"
-              >
-                Services
-              </button>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center gap-1 hover:text-primary transition-colors">
+                  Services <ChevronDown className="h-4 w-4" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-64 bg-card/95 backdrop-blur-sm border-primary/20">
+                  <DropdownMenuLabel className="text-primary">Service Categories</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem 
+                    onClick={() => scrollToSection('services')}
+                    className="cursor-pointer hover:bg-primary/10"
+                  >
+                    Students
+                    <span className="text-xs text-muted-foreground ml-2">Projects, Resume, Portfolio</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    onClick={() => scrollToSection('services')}
+                    className="cursor-pointer hover:bg-primary/10"
+                  >
+                    Business Professionals
+                    <span className="text-xs text-muted-foreground ml-2">Websites, Marketing, R&D</span>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem 
+                    onClick={() => scrollToSection('services')}
+                    className="cursor-pointer hover:bg-primary/10"
+                  >
+                    Career Development
+                    <span className="text-xs text-muted-foreground ml-2">Interviews, Training</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              
               <button 
                 onClick={() => scrollToSection('portfolio')}
                 className="hover:text-primary transition-colors"
               >
                 Portfolio
               </button>
+              
               <button 
                 onClick={() => scrollToSection('hire')}
                 className="hover:text-primary transition-colors"
               >
                 Hire Us
               </button>
+              
+              <button 
+                onClick={() => setCareersModalOpen(true)}
+                className="hover:text-primary transition-colors"
+              >
+                Careers
+              </button>
+              
               <button 
                 onClick={() => scrollToSection('testimonials')}
                 className="hover:text-primary transition-colors"
               >
                 Reviews
               </button>
+              
               <Button 
                 onClick={() => scrollToSection('contact')}
                 size="sm"
@@ -124,24 +169,33 @@ const Index = () => {
                 >
                   Portfolio
                 </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('hire');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left hover:text-primary transition-colors py-2"
-                >
-                  Hire Us
-                </button>
-                <button 
-                  onClick={() => {
-                    scrollToSection('testimonials');
-                    setMobileMenuOpen(false);
-                  }}
-                  className="text-left hover:text-primary transition-colors py-2"
-                >
-                  Reviews
-                </button>
+                 <button 
+                   onClick={() => {
+                     scrollToSection('hire');
+                     setMobileMenuOpen(false);
+                   }}
+                   className="text-left hover:text-primary transition-colors py-2"
+                 >
+                   Hire Us
+                 </button>
+                 <button 
+                   onClick={() => {
+                     setCareersModalOpen(true);
+                     setMobileMenuOpen(false);
+                   }}
+                   className="text-left hover:text-primary transition-colors py-2"
+                 >
+                   Careers
+                 </button>
+                 <button 
+                   onClick={() => {
+                     scrollToSection('testimonials');
+                     setMobileMenuOpen(false);
+                   }}
+                   className="text-left hover:text-primary transition-colors py-2"
+                 >
+                   Reviews
+                 </button>
                 <Button 
                   onClick={() => {
                     scrollToSection('contact');
@@ -224,6 +278,40 @@ const Index = () => {
       {/* Floating Elements */}
       <FloatingHelpBot />
       
+      {/* Careers Modal */}
+      <Dialog open={careersModalOpen} onOpenChange={setCareersModalOpen}>
+        <DialogContent className="max-w-md glass-card border-primary/20">
+          <DialogHeader>
+            <DialogTitle className="text-gradient text-2xl">Join Our Team</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-4">
+            <p className="text-muted-foreground">
+              We're a dynamic freelancing team looking for talented individuals to join us. 
+              If you're passionate about technology and innovation, we'd love to hear from you!
+            </p>
+            <div className="space-y-3">
+              <h4 className="font-semibold text-primary">What We Offer:</h4>
+              <ul className="text-sm text-muted-foreground space-y-1">
+                <li>• Flexible freelancing opportunities</li>
+                <li>• Work on cutting-edge projects</li>
+                <li>• Collaborative team environment</li>
+                <li>• Skill development and growth</li>
+              </ul>
+            </div>
+            <Button 
+              className="w-full neon-glow"
+              onClick={() => window.open('https://forms.google.com/create', '_blank')}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Apply Now - Google Form
+            </Button>
+            <p className="text-xs text-muted-foreground text-center">
+              Fill out our application form and we'll get back to you within 24 hours.
+            </p>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       {/* Scroll to Top Button */}
       {showScrollTop && (
         <Button
