@@ -19,7 +19,7 @@ const quickActions = [
     title: "Chat on WhatsApp",
     description: "Get instant response",
     icon: MessageCircle,
-    action: () => window.open("https://wa.me/919876543210?text=Hi! I need help with my project.", "_blank"),
+    action: () => window.open("https://wa.me/919943554500?text=Hi! I need help with my project.", "_blank"),
     color: "bg-neon-green/10 hover:bg-neon-green/20 text-neon-green border-neon-green/20"
   },
   {
@@ -27,7 +27,7 @@ const quickActions = [
     title: "Schedule a Call",
     description: "Book a consultation",
     icon: Phone,
-    action: () => window.open("tel:+919876543210", "_blank"),
+    action: () => window.open("tel:+919943554500", "_blank"),
     color: "bg-primary/10 hover:bg-primary/20 text-primary border-primary/20"
   },
   {
@@ -35,7 +35,8 @@ const quickActions = [
     title: "Send Email",
     description: "Detailed inquiry",
     icon: Mail,
-    action: () => window.open("mailto:hello@raptile.dev?subject=Project Inquiry", "_blank"),
+    // action: () => window.open("mailto:hello@raptile.dev?subject=Project Inquiry", "_blank"),
+    action: () => window.open("mailto:raptiledataworks@gmail.com?subject=Project Inquiry", "_blank"),
     color: "bg-accent/10 hover:bg-accent/20 text-accent border-accent/20"
   }
 ];

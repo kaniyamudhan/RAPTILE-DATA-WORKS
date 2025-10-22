@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { 
   Code, 
   Briefcase, 
@@ -13,211 +12,135 @@ import {
   Rocket,
   IndianRupee,
   Clock,
-  CheckCircle,
-  Bot,
-  TrendingUp,
-  Building,
-  Zap,
-  Lightbulb,
-  Search,
-  Users
+  CheckCircle
 } from "lucide-react";
 
 const services = [
-  // AI & Automation (Most Popular)
   {
-    id: "ai-agents",
-    title: "AI Agents & Automation",
-    description: "n8n, Make.com, API integrations, chatbots, filtering",
-    icon: Bot,
-    price: "₹15,000 - ₹50,000",
-    duration: "2-4 weeks",
+    id: "ai-saas-platform",
+    title: "AI-Powered Niche SaaS Platform",
+    description: "Focused software solving a specific business problem using AI.",
+    icon: Rocket,
+    duration: "4-12 weeks",
     features: [
-      "Custom automation workflows",
-      "API integrations & webhooks",
-      "AI chatbot development",
-      "Data filtering & processing",
-      "n8n & Make.com expert setup"
+      "Custom AI automation for business processes",
+      "Data-driven decision support",
+      "Scalable cloud architecture",
+      "User-friendly dashboards",
+      "Ongoing support & updates"
     ],
-    category: "business",
-    popular: true
+    category: "AI & SaaS"
   },
   {
-    id: "local-business",
-    title: "Local Business Solutions",
-    description: "Complete websites with marketing & e-commerce",
-    icon: Building,
-    price: "₹25,000 - ₹75,000",
-    duration: "3-5 weeks",
-    features: [
-      "Business website development",
-      "E-commerce functionality",
-      "Digital marketing setup",
-      "Payment gateway integration",
-      "WhatsApp business API"
-    ],
-    category: "business",
-    popular: true
-  },
-  {
-    id: "digital-marketing",
-    title: "Digital Marketing Solutions",
-    description: "SEO, social media, content marketing & lead generation",
-    icon: TrendingUp,
-    price: "₹20,000 - ₹60,000",
-    duration: "4-6 weeks",
-    features: [
-      "SEO optimization",
-      "Social media management",
-      "Content marketing strategy",
-      "Lead generation systems",
-      "Analytics & reporting"
-    ],
-    category: "business",
-    popular: true
-  },
-  {
-    id: "company-poc",
-    title: "Company PoC Project Builds",
-    description: "Proof of concept development for enterprise solutions",
-    icon: Lightbulb,
-    price: "₹30,000 - ₹1,00,000",
+    id: "micro-learning-platform",
+    title: "Micro-Learning / Skill Platform",
+    description: "Teach niche skills with interactive lessons, quizzes, and certification.",
+    icon: GraduationCap,
     duration: "4-8 weeks",
     features: [
-      "MVP development",
-      "Technical feasibility study",
-      "Prototype creation",
-      "Technology consultation",
-      "Scalability planning"
+      "Interactive courses and quizzes",
+      "AI-driven progress tracking",
+      "Certification issuance",
+      "Gamification elements",
+      "Corporate or B2C deployment"
     ],
-    category: "business"
+    category: "Education Tech"
   },
   {
-    id: "rd-works",
-    title: "R&D Works",
-    description: "Research & development for innovative solutions",
-    icon: Search,
-    price: "₹40,000 - ₹1,50,000",
+    id: "digital-service-marketplace",
+    title: "Digital Marketplace for Services",
+    description: "Connect freelancers to micro-projects in specialized niches.",
+    icon: Globe,
+    duration: "6-10 weeks",
+    features: [
+      "Freelancer & client dashboards",
+      "Micro-project management",
+      "AI-assisted matching & recommendations",
+      "Payment and commission handling",
+      "Analytics and reporting"
+    ],
+    category: "Marketplace & B2B"
+  },
+  {
+    id: "vertical-saas",
+    title: "Vertical SaaS for Local Businesses",
+    description: "Automation and management tools for niche industries like salons, gyms, or restaurants.",
+    icon: Briefcase,
+    duration: "4-8 weeks",
+    features: [
+      "Appointment scheduling with reminders",
+      "Loyalty & membership management",
+      "Integrated payment & invoicing",
+      "Analytics for customer engagement",
+      "Customizable industry-specific modules"
+    ],
+    category: "SaaS & Automation"
+  },
+  {
+    id: "ai-content-platform",
+    title: "Automated Content & Marketing Platform",
+    description: "AI-powered tool to generate graphics, ads, emails, and social media content.",
+    icon: Code,
     duration: "6-12 weeks",
     features: [
-      "Technology research",
-      "Innovation consulting",
-      "Custom solution development",
-      "Market analysis",
-      "Implementation roadmap"
+      "AI content creation for multiple channels",
+      "Template-based and dynamic content generation",
+      "Campaign scheduling & tracking",
+      "Analytics dashboard for ROI",
+      "Integration with marketing platforms"
     ],
-    category: "business"
-  },
-  // Career Development
-  {
-    id: "career-coaching",
-    title: "Career Coaching & Mentorship",
-    description: "1-on-1 guidance for career advancement",
-    icon: Users,
-    price: "₹10,000 - ₹25,000",
-    duration: "4-6 weeks",
-    features: [
-      "Personalized career roadmap",
-      "Skill gap analysis",
-      "Industry networking guidance",
-      "Salary negotiation tips",
-      "Long-term career planning"
-    ],
-    category: "career"
+    category: "AI & Marketing"
   },
   {
-    id: "tech-training",
-    title: "Technical Training Programs",
-    description: "Hands-on training in latest technologies",
-    icon: Code,
-    price: "₹15,000 - ₹40,000",
-    duration: "6-8 weeks",
-    features: [
-      "Live coding sessions",
-      "Project-based learning",
-      "Industry best practices",
-      "Certification assistance",
-      "Job placement support"
-    ],
-    category: "career"
-  },
-  // Students Category (Lower priority)
-  {
-    id: "portfolio",
-    title: "Personal Portfolio Websites",
-    description: "Professional portfolios for job seekers & freelancers",
-    icon: Globe,
-    price: "₹5,000 - ₹15,000",
-    duration: "1-2 weeks",
-    features: [
-      "Responsive design",
-      "Modern UI/UX",
-      "SEO optimization",
-      "Contact forms",
-      "Portfolio showcase"
-    ],
-    category: "students"
-  },
-  {
-    id: "final-year",
-    title: "Final Year Project Development",
-    description: "Complete project solutions with PPT & Viva support",
-    icon: GraduationCap,
-    price: "₹8,000 - ₹25,000",
-    duration: "3-5 weeks",
-    features: [
-      "Complete source code",
-      "Documentation & Reports",
-      "PPT presentation",
-      "Viva support & training",
-      "Project deployment"
-    ],
-    category: "students"
-  },
-  {
-    id: "interview",
-    title: "Mock Interview + Kits",
-    description: "Interview preparation with personalized feedback",
-    icon: MessageCircle,
-    price: "₹3,000 - ₹8,000",
-    duration: "1-2 weeks",
-    features: [
-      "1-on-1 mock interviews",
-      "Technical & behavioral rounds",
-      "Detailed feedback report",
-      "Interview kit with common questions",
-      "Follow-up sessions"
-    ],
-    category: "students"
-  },
-  {
-    id: "resume",
-    title: "Resume & LinkedIn Optimization",
-    description: "Professional resume design + LinkedIn profile optimization",
+    id: "digital-health-platform",
+    title: "Digital Health & Wellness Platform",
+    description: "AI-driven nutrition, fitness, and mental wellness solutions.",
     icon: User,
-    price: "₹2,000 - ₹5,000",
-    duration: "3-5 days",
+    duration: "6-10 weeks",
     features: [
-      "ATS-friendly resume design",
-      "LinkedIn profile optimization",
-      "Cover letter template",
-      "Interview preparation tips",
-      "Industry-specific keywords"
+      "Personalized AI recommendations",
+      "Health tracking and analytics",
+      "Tele-consultation integrations",
+      "Gamified challenges and coaching",
+      "Data security & HIPAA compliance"
     ],
-    category: "students"
+    category: "Health Tech"
+  },
+  {
+    id: "local-ecommerce-tech",
+    title: "Local E-Commerce & Logistics Platform",
+    description: "Help local businesses and artisans sell online with AI-powered logistics.",
+    icon: Globe,
+    duration: "6-12 weeks",
+    features: [
+      "Online storefront and catalog management",
+      "AI demand forecasting and inventory optimization",
+      "Delivery & logistics management",
+      "Secure payment integration",
+      "Analytics and reporting for business growth"
+    ],
+    category: "E-Commerce & Logistics"
+  },
+  {
+    id: "ai-personal-assistant",
+    title: "AI-Powered Personal Assistant Tool",
+    description: "Boost professional productivity with scheduling, lead gen, and email automation.",
+    icon: MessageCircle,
+    duration: "4-8 weeks",
+    features: [
+      "Calendar and email automation",
+      "AI-powered reminders and follow-ups",
+      "Lead generation & CRM integration",
+      "Multi-platform accessibility",
+      "Customizable premium features"
+    ],
+    category: "AI & Productivity"
   }
 ];
 
-export const ServicesSection = ({ initialCategory }: { initialCategory?: string } = {}) => {
+export const ServicesSection = () => {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory || "all");
-
-  useEffect(() => {
-    if (initialCategory && initialCategory !== selectedCategory) {
-      setSelectedCategory(initialCategory);
-    }
-  }, [initialCategory]);
 
   const handleServiceClick = (service: typeof services[0]) => {
     setSelectedService(service);
@@ -225,61 +148,34 @@ export const ServicesSection = ({ initialCategory }: { initialCategory?: string 
   };
 
   const handleBookService = (serviceId: string) => {
-    // This would integrate with Razorpay in a real implementation
     const whatsappMessage = `Hi! I'm interested in the ${selectedService?.title} service. Can we discuss the details?`;
-    const whatsappUrl = `https://wa.me/916374172911?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/919943554500?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappUrl, '_blank');
     setIsModalOpen(false);
   };
 
-  const filteredServices = selectedCategory === "all" 
-    ? services 
-    : services.filter(service => service.category === selectedCategory);
-
   return (
-    <section className="py-20 px-6" id="services">
+    <section className="py-20 px-6 relative" id="services">
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
             Our Services
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Professional solutions to accelerate your career and business growth
           </p>
-          
-          {/* Category Filter */}
-          <div className="flex justify-center mb-8">
-            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-              <SelectTrigger className="w-[280px] glass-card border-primary/20">
-                <SelectValue placeholder="Select Category" />
-              </SelectTrigger>
-              <SelectContent className="glass-card border-primary/20">
-                <SelectItem value="all">All Services</SelectItem>
-                <SelectItem value="students">Students</SelectItem>
-                <SelectItem value="business">Business Professionals</SelectItem>
-                <SelectItem value="career">Career Development</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredServices.map((service, index) => {
+          {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
               <Card
                 key={service.id}
-                className="glass-card hover-lift cursor-pointer group transition-all duration-300 hover:neon-glow relative"
+                className="glass-card hover-lift cursor-pointer group transition-all duration-300 hover:neon-glow"
                 onClick={() => handleServiceClick(service)}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                {(service as any).popular && (
-                  <div className="absolute -top-3 -right-3 z-10">
-                    <div className="bg-gradient-to-r from-primary to-neon-green text-background px-3 py-1 rounded-full text-xs font-bold animate-pulse-neon">
-                      MOST POPULAR
-                    </div>
-                  </div>
-                )}
                 <CardHeader className="text-center">
                   <div className="mx-auto mb-4 p-4 rounded-full bg-primary/10 w-fit group-hover:bg-primary/20 transition-colors">
                     <IconComponent className="h-8 w-8 text-primary group-hover:scale-110 transition-transform" />
@@ -291,13 +187,11 @@ export const ServicesSection = ({ initialCategory }: { initialCategory?: string 
                     {service.description}
                   </CardDescription>
                 </CardHeader>
+
                 <CardContent className="text-center">
-                  <div className="mb-4">
-                    <span className="text-2xl font-bold text-accent">{service.price}</span>
-                  </div>
                   <div className="flex items-center justify-center text-sm text-muted-foreground">
                     <Clock className="h-4 w-4 mr-1" />
-                    {service.duration}
+                    <span className="text-accent font-semibold">{service.duration}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -305,13 +199,19 @@ export const ServicesSection = ({ initialCategory }: { initialCategory?: string 
           })}
         </div>
 
-        {/* Service Detail Modal */}
+        {/* Modal */}
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-          <DialogContent className="glass-card border-primary/20 max-w-2xl">
+          <DialogContent
+            className="
+              glass-card border-primary/20
+              w-[90%] sm:w-[80%] md:w-[600px] lg:w-[700px] max-w-[90%]
+              mx-auto p-4 sm:p-6
+            "
+          >
             {selectedService && (
-              <>
+              <div className="space-y-6 w-full">
                 <DialogHeader>
-                  <div className="flex items-center gap-4 mb-4">
+                  <div className="flex items-center gap-4 mb-4 w-full">
                     <div className="p-3 rounded-full bg-primary/10">
                       <selectedService.icon className="h-8 w-8 text-primary" />
                     </div>
@@ -326,57 +226,57 @@ export const ServicesSection = ({ initialCategory }: { initialCategory?: string 
                   </div>
                 </DialogHeader>
 
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="glass-card p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <IndianRupee className="h-5 w-5 text-accent" />
-                        <span className="font-semibold">Pricing</span>
-                      </div>
-                      <span className="text-2xl font-bold text-accent">{selectedService.price}</span>
-                    </div>
-                    <div className="glass-card p-4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Clock className="h-5 w-5 text-primary" />
-                        <span className="font-semibold">Duration</span>
-                      </div>
-                      <span className="text-xl">{selectedService.duration}</span>
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                  <div className="glass-card p-4 flex items-center justify-center">
+                    <span className="text-2xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 drop-shadow-lg">
+                      ⚡ On Demand ⚡
+                    </span>
                   </div>
-
-                  <div>
-                    <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-accent" />
-                      What's Included
-                    </h4>
-                    <ul className="space-y-2">
-                      {selectedService.features.map((feature, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <CheckCircle className="h-4 w-4 text-accent flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex gap-4 pt-4">
-                    <Button
-                      onClick={() => handleBookService(selectedService.id)}
-                      className="flex-1 neon-glow hover-lift"
-                    >
-                      <MessageCircle className="mr-2 h-4 w-4" />
-                      Book via WhatsApp
-                    </Button>
-                    <Button
-                      variant="outline"
-                      className="flex-1 glass-card border-accent hover:neon-glow-green"
-                    >
-                      <IndianRupee className="mr-2 h-4 w-4" />
-                      Pay with Razorpay
-                    </Button>
+                  <div className="glass-card p-4 w-full">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Clock className="h-5 w-5 text-accent" />
+                      <span className="font-semibold text-accent">Duration</span>
+                    </div>
+                    <span className="text-xl font-semibold text-primary">
+                      {selectedService.duration}
+                    </span>
                   </div>
                 </div>
-              </>
+
+                <div>
+                  <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <CheckCircle className="h-5 w-5 text-accent" />
+                    What's Included
+                  </h4>
+                  <ul className="space-y-2">
+                    {selectedService.features.map((feature, index) => (
+                      <li key={index} className="flex items-center gap-2">
+                        <CheckCircle className="h-4 w-4 text-accent flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 w-full pt-4">
+                  <Button
+                    onClick={() => handleBookService(selectedService.id)}
+                    className="flex-1 neon-glow hover-lift"
+                  >
+                    <MessageCircle className="mr-2 h-4 w-4" />
+                    Book via WhatsApp
+                  </Button>
+
+                  <Button
+                    variant="outline"
+                    className="flex-1 glass-card border-accent hover:neon-glow-green"
+                    disabled={selectedService?.price === undefined}
+                  >
+                    <IndianRupee className="mr-2 h-4 w-4" />
+                    Pay with Razorpay
+                  </Button>
+                </div>
+              </div>
             )}
           </DialogContent>
         </Dialog>

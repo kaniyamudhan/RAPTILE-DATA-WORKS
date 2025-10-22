@@ -86,11 +86,18 @@ export const HeroSection = ({ onExploreServices, onHireUs }: {
         <div className="mb-8 flex justify-center">
           <div className="relative">
             <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full animate-pulse" />
-            <img 
+            {/* <img 
               src="/lovable-uploads/0103d35b-f35d-4893-91ab-74a6d2182b0b.png" 
               alt="Raptile DataWorks Logo" 
               className="relative w-32 h-32 animate-float hover:scale-110 transition-transform duration-300 drop-shadow-2xl"
-            />
+            /> */}
+            <img 
+  width="150" 
+  height="150" 
+  alt="RDW Logo-ToolsChimp com" 
+  src="https://github.com/user-attachments/assets/abb69cf5-5101-4046-96e6-e7ad2053349e" 
+/>
+
           </div>
         </div>
 
@@ -108,10 +115,10 @@ export const HeroSection = ({ onExploreServices, onHireUs }: {
             <br />
             <span className="relative inline-block">
               <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-neon-violet via-primary to-neon-violet animate-pulse blur-sm">
-                DATAWORKS
+                DATAWORK
               </span>
               <span className="relative text-gradient-violet animate-pulse">
-                DATAWORKS
+                DATAWORK
               </span>
             </span>
           </h1>

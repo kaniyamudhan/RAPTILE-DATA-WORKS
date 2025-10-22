@@ -36,24 +36,24 @@ const contactMethods = [
     title: "WhatsApp",
     description: "Quick response for urgent queries",
     icon: MessageCircle,
-    value: "+91 6374172911",
-    action: () => window.open("https://wa.me/916374172911", "_blank"),
+    value: "+91 99xxxxxx00",
+    action: () => window.open("https://wa.me/919943554500", "_blank"),
     color: "text-neon-green"
   },
   {
     title: "Email",
     description: "Detailed project discussions",
     icon: Mail,
-    value: "raptilesdataworks@gmail.com",
-    action: () => window.open("mailto:raptilesdataworks@gmail.com", "_blank"),
+    value: "raptiledataworks",
+    action: () => window.open("mailto:raptiledataworks@gmail.com", "_blank"),
     color: "text-primary"
   },
   {
     title: "Phone",
     description: "Direct call for immediate support",
     icon: Phone,
-    value: "+91 6374172911",
-    action: () => window.open("tel:+916374172911", "_blank"),
+    value: "+91 99xxxxxx00",
+    action: () => window.open("tel:+919943554500", "_blank"),
     color: "text-accent"
   }
 ];
@@ -113,7 +113,7 @@ Message: ${formData.message}
 
 Contact: ${formData.email} | ${formData.phone}`;
 
-    const whatsappUrl = `https://wa.me/916374172911?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/919943554500?text=${encodeURIComponent(whatsappMessage)}`;
     
     toast({
       title: "Form Submitted!",
@@ -139,14 +139,14 @@ Contact: ${formData.email} | ${formData.phone}`;
   return (
     <section className="py-20 px-6 bg-secondary/5" id="contact">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        {/* <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient">
             Get In Touch
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Ready to start your project? Let's discuss your requirements and bring your ideas to life.
           </p>
-        </div>
+        </div> */}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Contact Methods */}
@@ -276,7 +276,7 @@ Contact: ${formData.email} | ${formData.phone}`;
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => handleInputChange("phone", e.target.value)}
-                      placeholder="+91 6374172911"
+                      placeholder="+91 9943554500"
                       className="glass-card border-primary/20"
                     />
                   </div>

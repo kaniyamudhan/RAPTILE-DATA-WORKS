@@ -234,7 +234,8 @@ export const AboutSection = () => {
             size="lg" 
             className="neon-glow hover-lift group text-lg px-8 py-4"
           >
-            Start Your AI Journey
+            {/* Start Your AI Journey */}
+            AI Journey
             <Sparkles className="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
           </Button>
         </div>

@@ -90,7 +90,7 @@ export const HireSection = ({ onContactUs }: { onContactUs: () => void }) => {
   const handleServiceInquiry = (serviceId: string) => {
     const service = freelanceServices.find(s => s.id === serviceId);
     const message = `Hi! I'm interested in hiring Raptile DataWorks for ${service?.title}. Can we discuss the project requirements?`;
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/919943554500?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 

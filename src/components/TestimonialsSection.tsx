@@ -239,7 +239,7 @@ export const TestimonialsSection = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16">
+        {/* <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-16">
           <Card className="glass-card text-center hover-lift">
             <CardContent className="p-6">
               <div className="text-3xl font-bold text-primary mb-2">50+</div>
@@ -263,8 +263,8 @@ export const TestimonialsSection = () => {
               <div className="text-3xl font-bold text-neon-violet mb-2">24h</div>
               <div className="text-sm text-muted-foreground">Avg Response Time</div>
             </CardContent>
-          </Card>
-        </div>
+          </Card> */}
+        {/* </div> */}
       </div>
     </section>
   );
