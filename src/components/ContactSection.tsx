@@ -276,7 +276,7 @@ Contact: ${formData.email} | ${formData.phone}`;
                       id="phone"
                       value={formData.phone}
                       onChange={(e) => handleInputChange("phone", e.target.value)}
-                      placeholder="+91 9943554500"
+                      placeholder="+91 9876543210"
                       className="glass-card border-primary/20"
                     />
                   </div>
