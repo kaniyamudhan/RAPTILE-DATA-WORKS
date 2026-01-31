@@ -37,7 +37,7 @@ const contactMethods = [
     description: "Quick response for urgent queries",
     icon: MessageCircle,
     value: "+91 99xxxxxx00",
-    action: () => window.open("https://wa.me/919943554500", "_blank"),
+    action: () => window.open("https://wa.me/0000000000", "_blank"),
     color: "text-neon-green"
   },
   {
@@ -53,7 +53,7 @@ const contactMethods = [
     description: "Direct call for immediate support",
     icon: Phone,
     value: "+91 99xxxxxx00",
-    action: () => window.open("tel:+919943554500", "_blank"),
+    action: () => window.open("tel:+0000000000", "_blank"),
     color: "text-accent"
   }
 ];
